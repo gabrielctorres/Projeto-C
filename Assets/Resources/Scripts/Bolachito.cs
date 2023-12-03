@@ -13,8 +13,6 @@ public class Bolachito : Entities
     public override void Start()
     {
         base.Start();
-        lifeMax.CalculateModifer();
-        life = lifeMax.valueTotal;
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }

@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 757caeb29db7d5f4bb5e12fa3a54dddd, type: 3}
-  m_Name: Ataque_Normal
+  m_Name: LifeBolinha
   m_EditorClassIdentifier: 
-  valueBase: 10
+  valueBase: 5
   valueMax: 100
   valueTotal: 0
-  stackValue: 5
   modiferList: []

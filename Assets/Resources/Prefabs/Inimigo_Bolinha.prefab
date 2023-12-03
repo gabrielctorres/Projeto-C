@@ -157,8 +157,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddf2335d047ab1b4f8a91029eaca59e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeMax: {fileID: 11400000, guid: d0fda111f87e68b4c9eda29db4718e65, type: 2}
   life: 100
-  attackDamage: 2
+  weakAttack: {fileID: 11400000, guid: 82cc5544f1f2cca428d9dbd5123520dc, type: 2}
   spd: 4
   target: {fileID: 0}
   stopDistance: 2

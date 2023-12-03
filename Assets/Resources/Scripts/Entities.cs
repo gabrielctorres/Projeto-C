@@ -14,6 +14,8 @@ public class Entities : MonoBehaviour
     public virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        lifeMax.CalculateModifer();
+        life = lifeMax.valueTotal;
     }
 
     // Update is called once per frame
