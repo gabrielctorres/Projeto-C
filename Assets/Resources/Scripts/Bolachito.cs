@@ -13,6 +13,7 @@ public class Bolachito : Entities
     {
         //Iniciarlizar o rb
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -21,12 +22,15 @@ public class Bolachito : Entities
         //Movimento
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
+
     }
 
     private void FixedUpdate()
     {
         //Movimento
-        rb.velocity = new Vector2(horizontal, vertical) * Time.fixedDeltaTime * spd * 10;
+        Vector2 direction = new Vector2(horizontal, vertical);
+        rb.velocity = direction * Time.fixedDeltaTime * spd * 10;
+        SetDirectionSprite(direction);
     }
 
 }
