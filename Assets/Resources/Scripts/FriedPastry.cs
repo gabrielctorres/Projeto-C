@@ -5,15 +5,15 @@ using UnityEngine;
 public class FriedPastry : Enemy
 {
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
-
+        base.Start();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Movement();
     }
     void FixedUpdate()
     {
