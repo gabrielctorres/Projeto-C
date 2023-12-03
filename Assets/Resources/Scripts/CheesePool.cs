@@ -16,8 +16,8 @@ public class CheesePool : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer+=Time.deltaTime;
-        if (timer >= timerSet) 
+        timer += Time.deltaTime;
+        if (timer >= timerSet)
         {
             Destroy(this.gameObject);
         }
@@ -26,19 +26,19 @@ public class CheesePool : MonoBehaviour
     {
         if (collision.GetComponent<Enemy>() != null)
         {
-            collision.GetComponent<Enemy>().HealDamage();
+            collision.GetComponent<Enemy>().HealDamage(1f);
         }
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Bolachito>() != null) 
+        if (collision.GetComponent<Bolachito>() != null)
         {
             oldSpeed = collision.GetComponent<Bolachito>().SlowDown(5);
         }
     }
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.GetComponent<Bolachito>() != null) 
+        if (collision.GetComponent<Bolachito>() != null)
         {
             collision.GetComponent<Bolachito>().SlowDown(oldSpeed);
         }

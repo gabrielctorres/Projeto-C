@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bolachito : Entities
 {
-    [SerializeField] private float luck;
+    [SerializeField] private Attribute specialAttack;
     private float horizontal;
     private float vertical;
 
@@ -12,6 +13,7 @@ public class Bolachito : Entities
     void Start()
     {
         anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -20,6 +22,11 @@ public class Bolachito : Entities
         //Movimento
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            GameManager.instance.AddExperience(10);
+        }
 
     }
 
@@ -31,6 +38,6 @@ public class Bolachito : Entities
         SetDirectionSprite(direction);
     }
 
-    
+
 
 }
