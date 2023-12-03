@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class Missile : MonoBehaviour
 {
-    private LittleTights littleTights = new LittleTights();
     private Transform target;
     private Rigidbody2D rb;
     private Vector3 dragStartPos;
@@ -15,7 +14,7 @@ public class Missile : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        target = littleTights.GetPlayerPosition();
+        target = GameManager.instance.character.transform;
         dragStartPos = transform.position;
     }
 
