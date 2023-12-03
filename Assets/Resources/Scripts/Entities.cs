@@ -21,10 +21,30 @@ public class Entities : MonoBehaviour
 
     }
 
+
     public virtual void SetDirectionSprite(Vector2 direction)
     {
         anim.SetFloat("Horizontal", direction.x);
         anim.SetFloat("Vertical", direction.y);
+    }
+
+    public void TakeDamage(float damage) 
+    {
+        life-=damage;
+    }
+    public float SlowDown(float slow) 
+    {
+        float aux = spd;
+        spd = slow;
+        return aux;
+    }
+    public void HealDamage() 
+    {
+        life++;
+    }
+    public float CheckDPS() 
+    {
+        return attackDamage;
     }
 
 }
