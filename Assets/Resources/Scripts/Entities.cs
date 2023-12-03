@@ -20,4 +20,23 @@ public class Entities : MonoBehaviour
     {
         
     }
+
+    public void TakeDamage(float damage) 
+    {
+        life-=damage;
+    }
+    public float SlowDown(float slow) 
+    {
+        float aux = spd;
+        spd = slow;
+        return aux;
+    }
+    public void HealDamage() 
+    {
+        life++;
+    }
+    public float CheckDPS() 
+    {
+        return attackDamage;
+    }
 }

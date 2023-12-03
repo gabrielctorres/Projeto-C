@@ -29,4 +29,6 @@ public class Bolachito : Entities
         rb.velocity = new Vector2(horizontal, vertical) * Time.fixedDeltaTime * spd * 10;
     }
 
+    
+
 }
