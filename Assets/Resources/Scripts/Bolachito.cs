@@ -2,9 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-
+using UnityEngine.UI;
+using TMPro;
 public class Bolachito : Entities
 {
+    [Header("UI")]
+    [SerializeField] private Image lifeImage;
+    [SerializeField] private TextMeshProUGUI lifeText;
+
+    [Header("Atributo Personagem")]
     [SerializeField] private Attribute specialAttack;
     private float horizontal;
     private float vertical;
@@ -27,8 +33,10 @@ public class Bolachito : Entities
         if (Input.GetKeyDown(KeyCode.T))
         {
             GameManager.instance.AddExperience(10);
+            //TakeDamage(1f);
         }
-
+        lifeImage.fillAmount = (life / lifeMax.valueTotal);
+        lifeText.text = life + "/" + lifeMax.valueTotal;
     }
 
     void FixedUpdate()
@@ -39,6 +47,10 @@ public class Bolachito : Entities
         SetDirectionSprite(direction);
     }
 
-
+    public override void OnEnable()
+    {
+        base.OnEnable();
+        specialAttack.ResetTotalValue();
+    }
 
 }
