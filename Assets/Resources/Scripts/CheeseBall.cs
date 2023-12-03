@@ -32,7 +32,6 @@ public class CheeseBall : Enemy
                 rb.velocity = Vector3.zero;
             }
         }
-
     }
     
 }
