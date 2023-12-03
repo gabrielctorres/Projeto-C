@@ -7,34 +7,41 @@ using UnityEngine;
 public class Missile : MonoBehaviour
 {
     private Transform target;
-    private Rigidbody2D rb;
-    private Vector3 dragStartPos;
-    private float power = 5;
+    public AnimationCurve curve;
+    [SerializeField] private float duration = 1;
+    [SerializeField] private float maxHeightY = 3;
+    public IEnumerator Curve(Vector3 start, Vector3 end)
+    {
+        var timePast = 0f;
+        while (timePast < duration)
+        {
+            timePast += Time.deltaTime;
+
+            var linearTime = timePast / duration;
+            var heightTime = curve.Evaluate(linearTime);
+            var height = Mathf.Lerp(0, maxHeightY, heightTime);
+            transform.position = Vector3.Lerp(start, end, linearTime) + new Vector3(0, height, 0); //adding values on y axis
+
+            yield return null;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         target = GameManager.instance.character.transform;
-        dragStartPos = transform.position;
+        StartCoroutine(Curve(transform.position, target.position));
     }
 
     // Update is called once per frame
     void Update()
     {
-        //rb.AddForce();
-        //Parabula();
     }
-
-    public static Vector2 Parabola(Vector2 start, Vector2 end, float height, float t)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        Func<float, float> f = x => -4 * height * x * x + 4 * height * x;
-        var mid = Vector2.Lerp(start, end, t);
-        return new Vector2(mid.x, f(t) + Mathf.Lerp(start.y, end.y, t));
-    }
-
-    public void Parabula() 
-    {
-        Vector2 velocity = (target.position - dragStartPos) * power;
-        rb.velocity = velocity;
+        if (collision.GetComponent<Bolachito>() != null)
+        {
+            collision.GetComponent<Bolachito>().TakeDamage(5);
+            Destroy(this.gameObject);
+        }
     }
 }

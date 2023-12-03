@@ -26,8 +26,9 @@ public class CheeseBall : Enemy
             if(timer > controlTime)
             {
                 //Invocar ataque
-                GameObject pool = Instantiate(cheesePool, transform.position, transform.rotation);
+                //GameObject pool = Instantiate(cheesePool, transform.position, transform.rotation);
                 //pool.GetComponent<CheesePool>().damage = attackDamage;
+                Instantiate(cheesePool, transform.position, transform.rotation);
                 timer = 0;
             }
             timer += Time.fixedDeltaTime;

@@ -33,16 +33,11 @@ public class LittleTights : Enemy
                 if(timer > controlTime)
                 {
                     //Invocar ataque
-                    GameObject pool = Instantiate(missile, transform.position, transform.rotation);
-                    
+                    Instantiate(missile, transform.position, transform.rotation);
                     timer = 0;
                 }
                 timer += Time.fixedDeltaTime;
             }
         }
-    }
-    public Transform GetPlayerPosition() 
-    {
-        return target;
     }
 }
