@@ -21,7 +21,7 @@ public class Enemy : Entities
     {
         
     }
-    public void Movement() 
+    public void Movement()
     {
         Vector3 direction = (target.position - transform.position).normalized;
         moveDirection = direction;
