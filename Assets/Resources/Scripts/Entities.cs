@@ -17,6 +17,7 @@ public class Entities : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         lifeMax.CalculateModifer();
         life = lifeMax.valueTotal;
+        weakAttack.CalculateModifer();
     }
 
     // Update is called once per frame
