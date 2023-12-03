@@ -8,7 +8,8 @@ public class GunController : MonoBehaviour
     [SerializeField] private Transform spawnBullet;
     [SerializeField] Camera mainCamera;
     private SpriteRenderer sprite;
-
+    float fireRate = 1f;
+    float nextFire;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +25,9 @@ public class GunController : MonoBehaviour
     }
     private void Shoot()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1") && Time.time > nextFire)
         {
+            nextFire = Time.time + fireRate;
             GameObject shootBullet = Instantiate(bullet, spawnBullet.position, transform.rotation);
             Vector3 mousePos = Input.mousePosition;
             Vector3 mouseWorld = mainCamera.ScreenToWorldPoint(mousePos);
