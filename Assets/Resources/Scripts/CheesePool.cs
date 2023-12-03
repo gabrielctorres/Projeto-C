@@ -6,7 +6,7 @@ public class CheesePool : MonoBehaviour
 {
     private float timer;
     [SerializeField] private float timerSet;
-    public float oldSpeed;
+    private float oldSpeed;
 
     // Start is called before the first frame update
     void Start()

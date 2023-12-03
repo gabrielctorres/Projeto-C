@@ -10,8 +10,8 @@ public class CheeseBall : Enemy
     // Start is called before the first frame update
     void Start()
     {
-        rb.GetComponent<Rigidbody2D>();
-        target = GameObject.Find("Player").transform;
+        rb = GetComponent<Rigidbody2D>();
+        target = GameObject.Find("Personagem_Bolachito").transform;
         //controlTime = 5;
     }
 
