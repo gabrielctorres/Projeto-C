@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 1108142801, guid: 4ad5cfb369ef20a42999809dd0735610, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -160,8 +160,9 @@ MonoBehaviour:
   lifeMax: {fileID: 11400000, guid: d0fda111f87e68b4c9eda29db4718e65, type: 2}
   life: 100
   weakAttack: {fileID: 11400000, guid: 82cc5544f1f2cca428d9dbd5123520dc, type: 2}
-  spd: 4
+  spd: 3.5
   target: {fileID: 0}
   stopDistance: 2
+  xp: 7
   controlTime: 3
   cheesePool: {fileID: 2208394156235316379, guid: f2bcef5e064982a4586a67adeaf2cc3a, type: 3}

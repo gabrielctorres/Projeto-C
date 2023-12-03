@@ -17,6 +17,7 @@ public class LittleTights : Enemy
     void Update()
     {
         Movement();
+        VerifyDeath();
     }
 
     void FixedUpdate()
@@ -30,7 +31,7 @@ public class LittleTights : Enemy
             else
             {
                 rb.velocity = Vector3.zero;
-                if(timer > controlTime)
+                if (timer > controlTime)
                 {
                     //Invocar ataque
                     Instantiate(missile, transform.position, transform.rotation);
@@ -38,6 +39,14 @@ public class LittleTights : Enemy
                 }
                 timer += Time.fixedDeltaTime;
             }
+        }
+    }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.GetComponent<Bullet>() != null)
+        {
+            this.TakeDamage(GameManager.instance.weakAttack.valueTotal);
         }
     }
 }

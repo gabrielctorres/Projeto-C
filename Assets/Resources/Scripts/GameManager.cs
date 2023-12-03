@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using System;
 public class GameManager : MonoBehaviour
 {
-    private float currentLevel = 1;
+    public float currentLevel = 1;
     private float experience;
 
     public Bolachito character;
@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject menuLevelUP;
     public static GameManager instance;
 
-
+    public bool canSpawn = true;
     private void Awake()
     {
         if (instance == null)
@@ -42,12 +42,13 @@ public class GameManager : MonoBehaviour
     {
         levelImage.fillAmount = (experience / 100);
         levelText.text = "LEVEL " + currentLevel.ToString();
-
     }
 
     public void openLevelUp()
     {
         menuLevelUP.SetActive(true);
+        canSpawn = false;
+        Time.timeScale = 0;
     }
     public void AddExperience(float xp)
     {
@@ -59,7 +60,7 @@ public class GameManager : MonoBehaviour
         {
             experience = 0;
             currentLevel++;
-            if (currentLevel % 5 == 0)
+            if (currentLevel % 2 == 0)
             {
                 openLevelUp();
             }
@@ -69,25 +70,31 @@ public class GameManager : MonoBehaviour
 
     public void UpgradeLife()
     {
+        Time.timeScale = 1;
         menuLevelUP.SetActive(false);
         lifeCharacter.AddModifier(10f);
         lifeCharacter.CalculateModifer();
         character.HealDamage(lifeCharacter.valueTotal, true);
+        canSpawn = true;
     }
 
     public void UpgradeWeakAttack()
     {
+        Time.timeScale = 1;
         menuLevelUP.SetActive(false);
         weakAttack.AddModifier(3f);
         weakAttack.CalculateModifer();
         character.HealDamage(lifeCharacter.valueTotal, true);
+        canSpawn = true;
     }
 
     public void UpgradeSpecial()
     {
+        Time.timeScale = 1;
         menuLevelUP.SetActive(false);
         specialAttack.AddModifier(3f);
         specialAttack.CalculateModifer();
         character.HealDamage(lifeCharacter.valueTotal, true);
+        canSpawn = true;
     }
 }

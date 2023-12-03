@@ -7,8 +7,10 @@ public class Enemy : Entities
     [SerializeField] protected Transform target;
     [SerializeField] protected float stopDistance;
 
+    public List<GameObject> listEnemy = new List<GameObject>();
     protected float playerDistance;
     protected Vector2 moveDirection;
+    public float xp;
     // Start is called before the first frame update
     public override void Start()
     {
@@ -19,7 +21,16 @@ public class Enemy : Entities
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+    public void VerifyDeath()
+    {
+        if (life <= 0)
+        {
+            GameManager.instance.AddExperience(xp);
+            listEnemy.Remove(this.gameObject);
+            Destroy(this.gameObject);
+        }
     }
     public void Movement()
     {
@@ -27,4 +38,6 @@ public class Enemy : Entities
         moveDirection = direction;
         playerDistance = (target.position - transform.position).magnitude;
     }
+
+
 }

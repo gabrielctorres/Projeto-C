@@ -45,7 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 0}
-  lifeCharacter: {fileID: 0}
+  lifeCharacter: {fileID: 11400000, guid: 130aa377c71c75b4b928f614c4eb2ff1, type: 2}
+  weakAttack: {fileID: 11400000, guid: 5602ba0c2b68db647bcaf17981bb5e75, type: 2}
+  specialAttack: {fileID: 11400000, guid: a1fee54871f749d4ab65f63a58e6210f, type: 2}
   levelImage: {fileID: 0}
   levelText: {fileID: 0}
   menuLevelUP: {fileID: 0}
+  canSpawn: 1

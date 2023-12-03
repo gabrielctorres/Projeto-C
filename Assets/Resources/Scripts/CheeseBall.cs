@@ -18,12 +18,13 @@ public class CheeseBall : Enemy
     void Update()
     {
         Movement();
+        VerifyDeath();
     }
     void FixedUpdate()
     {
         if (target)
         {
-            if(timer > controlTime)
+            if (timer > controlTime)
             {
                 //Invocar ataque
                 //GameObject pool = Instantiate(cheesePool, transform.position, transform.rotation);
@@ -43,5 +44,11 @@ public class CheeseBall : Enemy
             }
         }
     }
-    
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.GetComponent<Bullet>() != null)
+        {
+            this.TakeDamage(GameManager.instance.weakAttack.valueTotal);
+        }
+    }
 }

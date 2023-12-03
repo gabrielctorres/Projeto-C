@@ -30,11 +30,6 @@ public class Bolachito : Entities
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            GameManager.instance.AddExperience(10);
-            //TakeDamage(1f);
-        }
         lifeImage.fillAmount = (life / lifeMax.valueTotal);
         lifeText.text = life + "/" + lifeMax.valueTotal;
     }
