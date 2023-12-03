@@ -18,12 +18,23 @@ public class Spawner : MonoBehaviour
         timer += Time.fixedDeltaTime;
         if(timer > controlTime) 
         {
-            
+            //ChooseEnemy();
         }
     }
 
     private void ChooseEnemy() 
     {
-        int x = Random.Range(0, 3);
+        switch(Random.Range(0, 3)) 
+        {
+            case 1:
+                // coxinha
+                break;
+            case 2:
+                // pastel
+                break;
+            case 3:
+                // bolinha de queijo
+                break;
+        }
     }
 }
