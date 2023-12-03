@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Entities : MonoBehaviour
 {
+    [SerializeField] protected Attribute lifeMax;
     [SerializeField] protected float life;
-    [SerializeField] protected float attackDamage;
+    [SerializeField] protected Attribute weakAttack;
     [SerializeField] protected float spd;
     protected Rigidbody2D rb;
     protected Animator anim;
@@ -28,23 +29,24 @@ public class Entities : MonoBehaviour
         anim.SetFloat("Vertical", direction.y);
     }
 
-    public void TakeDamage(float damage) 
+    public void TakeDamage(float damage)
     {
-        life-=damage;
+        life -= damage;
     }
-    public float SlowDown(float slow) 
+    public float SlowDown(float slow)
     {
         float aux = spd;
         spd = slow;
         return aux;
     }
-    public void HealDamage() 
+    public void HealDamage(float value)
     {
-        life++;
+        if (life < lifeMax.valueTotal)
+            life += value;
     }
-    public float CheckDPS() 
+    public float CheckDPS()
     {
-        return attackDamage;
+        return weakAttack.valueTotal;
     }
 
 }
