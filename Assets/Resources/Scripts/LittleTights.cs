@@ -6,6 +6,7 @@ public class LittleTights : Enemy
 {
     private float timer;
     [SerializeField] private float controlTime;
+    [SerializeField] private GameObject missile;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,12 +33,16 @@ public class LittleTights : Enemy
                 if(timer > controlTime)
                 {
                     //Invocar ataque
-                    //GameObject pool = Instantiate(cheesePool, transform.position, transform.rotation);
-                    //pool.GetComponent<CheesePool>().damage = attackDamage;
+                    GameObject pool = Instantiate(missile, transform.position, transform.rotation);
+                    
                     timer = 0;
                 }
                 timer += Time.fixedDeltaTime;
             }
         }
+    }
+    public Transform GetPlayerPosition() 
+    {
+        return target;
     }
 }

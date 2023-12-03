@@ -11,8 +11,6 @@ public class Bolachito : Entities
     // Start is called before the first frame update
     void Start()
     {
-        //Iniciarlizar o rb
-        rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
 
