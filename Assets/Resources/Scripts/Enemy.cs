@@ -12,12 +12,15 @@ public class Enemy : Entities
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
+        target = GameObject.Find("Personagem_Bolachito").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Vector3 direction = (target.position - transform.position).normalized;
+        moveDirection = direction;
+        playerDistance = (target.position - transform.position).magnitude;
     }
 }

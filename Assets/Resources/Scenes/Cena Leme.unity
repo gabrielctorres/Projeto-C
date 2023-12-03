@@ -411,6 +411,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Personagem_Bolachito
       objectReference: {fileID: 0}
+    - target: {fileID: 1848503150055294124, guid: 06c1c10b0b5ca964394fd273788ec5d9, type: 3}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 1848503150055294126, guid: 06c1c10b0b5ca964394fd273788ec5d9, type: 3}
       propertyPath: m_RootOrder
       value: 2

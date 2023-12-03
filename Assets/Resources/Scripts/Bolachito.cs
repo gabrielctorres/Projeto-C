@@ -25,7 +25,7 @@ public class Bolachito : Entities
 
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         //Movimento
         Vector2 direction = new Vector2(horizontal, vertical);
