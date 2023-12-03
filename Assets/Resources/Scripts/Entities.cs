@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Entities : MonoBehaviour
 {
+    [Header("Atributo Entidade")]
     [SerializeField] protected Attribute lifeMax;
     [SerializeField] protected float life;
     [SerializeField] protected Attribute weakAttack;
@@ -41,14 +42,20 @@ public class Entities : MonoBehaviour
         spd = slow;
         return aux;
     }
-    public void HealDamage(float value)
+    public void HealDamage(float value, bool isFull = false)
     {
-        if (life < lifeMax.valueTotal)
+        if (life < lifeMax.valueTotal && !isFull)
             life += value;
+        else if (isFull)
+            life = value;
     }
     public float CheckDPS()
     {
         return weakAttack.valueTotal;
     }
-
+    public virtual void OnEnable()
+    {
+        lifeMax.ResetTotalValue();
+        weakAttack.ResetTotalValue();
+    }
 }
