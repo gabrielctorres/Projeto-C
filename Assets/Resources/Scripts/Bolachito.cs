@@ -9,8 +9,9 @@ public class Bolachito : Entities
     private float vertical;
 
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
+        base.Start();
         anim = GetComponent<Animator>();
     }
 

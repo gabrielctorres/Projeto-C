@@ -8,15 +8,16 @@ public class CheeseBall : Enemy
     [SerializeField] private float controlTime;
     [SerializeField] private GameObject cheesePool;
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
+        base.Start();
         //controlTime = 5;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Movement();
     }
     void FixedUpdate()
     {

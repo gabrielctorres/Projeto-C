@@ -10,7 +10,7 @@ public class Entities : MonoBehaviour
     protected Rigidbody2D rb;
     protected Animator anim;
     // Start is called before the first frame update
-    void Start()
+    public virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }

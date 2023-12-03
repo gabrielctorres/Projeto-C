@@ -342,6 +342,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1403498008}
     - target: {fileID: 309797631, guid: 580f2618186f6104d8b10fab9c2a4c9b, type: 3}
+      propertyPath: cheesePool
+      value: 
+      objectReference: {fileID: 2208394156235316379, guid: f2bcef5e064982a4586a67adeaf2cc3a, type: 3}
+    - target: {fileID: 309797631, guid: 580f2618186f6104d8b10fab9c2a4c9b, type: 3}
       propertyPath: controlTime
       value: 2
       objectReference: {fileID: 0}

@@ -8,15 +8,15 @@ public class LittleTights : Enemy
     [SerializeField] private float controlTime;
     [SerializeField] private GameObject missile;
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
-
+        base.Start();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        Movement();
     }
 
     void FixedUpdate()
