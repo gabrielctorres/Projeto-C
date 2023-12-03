@@ -11,7 +11,6 @@ public class Spawner : MonoBehaviour
     {
         
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -21,7 +20,6 @@ public class Spawner : MonoBehaviour
             //ChooseEnemy();
         }
     }
-
     private void ChooseEnemy() 
     {
         switch(Random.Range(0, 3)) 

@@ -18,6 +18,6 @@ public class Enemy : Entities
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 }
