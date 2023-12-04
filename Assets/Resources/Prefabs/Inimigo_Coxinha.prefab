@@ -142,7 +142,8 @@ MonoBehaviour:
   spd: 1
   target: {fileID: 0}
   stopDistance: 5
-  xp: 12
+  listEnemy: []
+  xp: 11
   controlTime: 3
   missile: {fileID: 4894805896436199927, guid: fe0911946c400604ab12efe1d6ae0227, type: 3}
 --- !u!50 &6647170989196792720
@@ -153,7 +154,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 572991168372312477}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

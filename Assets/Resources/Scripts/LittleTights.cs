@@ -27,6 +27,7 @@ public class LittleTights : Enemy
             if (playerDistance > stopDistance)
             {
                 rb.velocity = new Vector2(moveDirection.x, moveDirection.y) * spd;
+                anim.SetBool("atacou", false);
             }
             else
             {
@@ -35,6 +36,7 @@ public class LittleTights : Enemy
                 {
                     //Invocar ataque
                     Instantiate(missile, transform.position, transform.rotation);
+                    anim.SetBool("atacou", true);
                     timer = 0;
                 }
                 timer += Time.fixedDeltaTime;

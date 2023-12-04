@@ -7,10 +7,15 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float spd;
     [SerializeField] private Rigidbody2D rb;
-
+    [SerializeField] private Gradient colorBullet;
     // Start is called before the first frame update
     void Start()
     {
+        RandomColor();
+    }
+    public void RandomColor()
+    {
+        GetComponent<SpriteRenderer>().color = colorBullet.Evaluate(Random.Range(0f, 1f));
     }
 
     // Update is called once per frame
@@ -20,7 +25,7 @@ public class Bullet : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

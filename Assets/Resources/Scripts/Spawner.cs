@@ -25,7 +25,7 @@ public class Spawner : MonoBehaviour
         if (GameManager.instance.canSpawn)
         {
             timer += Time.fixedDeltaTime;
-            if (timer > controlTime && count <= 20 + GameManager.instance.currentLevel)
+            if (timer > controlTime && count <= (20 + GameManager.instance.currentLevel))
             {
                 Spawn();
             }

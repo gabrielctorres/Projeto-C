@@ -15,6 +15,7 @@ public class Enemy : Entities
     public override void Start()
     {
         base.Start();
+        anim = GetComponent<Animator>();
         target = GameObject.Find("Personagem_Bolachito").transform;
     }
 
@@ -37,6 +38,7 @@ public class Enemy : Entities
         Vector3 direction = (target.position - transform.position).normalized;
         moveDirection = direction;
         playerDistance = (target.position - transform.position).magnitude;
+        SetDirectionSprite(direction);
     }
 
 

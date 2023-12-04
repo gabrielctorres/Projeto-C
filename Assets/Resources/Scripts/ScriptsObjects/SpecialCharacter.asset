@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 757caeb29db7d5f4bb5e12fa3a54dddd, type: 3}
   m_Name: SpecialCharacter
   m_EditorClassIdentifier: 
-  valueBase: 5
+  valueBase: 2
   valueMax: 150
   valueTotal: 0
-  modiferList: []
+  modiferList:
+  - 3
