@@ -16,6 +16,7 @@ public class FriedPastry : Enemy
     void Update()
     {
         Movement();
+        VerifyDeath();
     }
     void FixedUpdate()
     {
@@ -26,14 +27,29 @@ public class FriedPastry : Enemy
             {
                 rb.velocity = dir * spd;
                 Vector3 vector3 = Vector3.left * dir.x + Vector3.down * dir.y;
-                Aim.rotation = Quaternion.LookRotation(Vector3.forward, vector3);
-            }
-            else
-            {
-                rb.velocity = Vector3.zero;
-                //Dano
-                
             }
         }
     }
+
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.GetComponent<Bullet>() != null)
+        {
+            this.TakeDamage(GameManager.instance.weakAttack.valueTotal);
+        }
+        if (other.GetComponent<Bolachito>() != null)
+        {
+            other.GetComponent<Bolachito>().TakeDamage(weakAttack.valueTotal);
+            anim.SetBool("atacou", true);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.GetComponent<Bolachito>() != null)
+        {
+            anim.SetBool("atacou", false);
+        }
+    }
+
 }

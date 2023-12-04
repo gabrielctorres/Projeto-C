@@ -8,6 +8,7 @@ public class Bolachito : Entities
 {
     [Header("UI")]
     [SerializeField] private Image lifeImage;
+    [SerializeField] private Image timerImage;
     [SerializeField] private TextMeshProUGUI lifeText;
 
     [Header("Atributo Personagem")]
@@ -15,12 +16,17 @@ public class Bolachito : Entities
     private float horizontal;
     private float vertical;
 
+    public GameObject specialPrefab;
+    private bool canUseSkill = false;
+    private float timer = 10f;
+
     // Start is called before the first frame update
     public override void Start()
     {
         base.Start();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        specialAttack.CalculateModifer();
     }
 
     // Update is called once per frame
@@ -32,6 +38,23 @@ public class Bolachito : Entities
 
         lifeImage.fillAmount = (life / lifeMax.valueTotal);
         lifeText.text = life + "/" + lifeMax.valueTotal;
+
+        timerImage.fillAmount = (timer / 10);
+
+        timer -= Time.deltaTime;
+        if (timer <= 0)
+        {
+            timer = 0;
+            canUseSkill = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse1) && canUseSkill)
+        {
+            GameObject bomba = Instantiate(specialPrefab, transform.position, Quaternion.identity);
+            canUseSkill = false;
+            timer = 10;
+        }
+
     }
 
     void FixedUpdate()
